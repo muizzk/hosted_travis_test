@@ -1,3 +1,3 @@
 About
 =====
-Repo to test Hosted TravisCI works
+Test Enterprise TravisCI works
