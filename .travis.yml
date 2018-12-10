@@ -2,3 +2,5 @@ languages: ruby
 rvm:
   - 2.3
   - jruby
+before_install:
+  - openssl aes-256-cbc -K $encrypted_34bb3d41e405_key -iv $encrypted_34bb3d41e405_iv -in secret.txt.enc -out secret.txt -d
