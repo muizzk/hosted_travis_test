@@ -1,6 +1,10 @@
 languages: ruby
 rvm:
-  - 2.3
-  - jruby
+- 2.3
+- jruby
 before_install:
-  - openssl aes-256-cbc -K $encrypted_34bb3d41e405_key -iv $encrypted_34bb3d41e405_iv -in secret.txt.enc -out secret.txt -d
+- openssl aes-256-cbc -K $encrypted_34bb3d41e405_key -iv $encrypted_34bb3d41e405_iv
+  -in secret.txt.enc -out secret.txt -d
+env:
+  global:
+    secure: WNI0RJbBeSKQ0DVelHXXKknujAQVR4D/Y1LU2tHJjKpp184kRox5ijBSKSsCKNg0RUQ+VQWruay/521ldhl56ISwK5gNbjbF7sfwTY3A7sNS8rQaCrPNAdRrB0GfFUGlzwAJFgnq5n3C6u3iDbmwyZnU1G78xrEe3atoo8S0vS1wfIkxAJ/whyEmPhpq3GiWcjGNLqXb0rdWLuBF12h7jiTCXkoJaUGN3aU6ab5l2Fet97nN4rbSCkPXHV4ZB94D1xtjce2gSVinMKgeJ10YvXli4EkFo3yO3JQKC7UEHHEC3jkKTPV/h1lK6buuw85VSBZvmB0VEUpnRQXmwUKuvyJCOZwqAcLyz3QiklH4yz3N9tXrFoSkgc/EeRBHoXNha1rZClE910yhxdWdr3V9+oKA2uWAmNqKjuB2H3kQ17B8LL4ZvjRB8eQdCs9hEF8AWrWhbalKmORobG+HUhDOhV0DVy10rGHmpzX1hdZlmv/vpt1FGFyPM1m2uy91yvLaUjX6a45Er6VCztAkxnsyyyCf9l6ze4GI+QYNZFoycc9XtmRxUXyHL74GUh9mpDAEWD6bhhhw2VQxym44aNA6Xiy8fCNxdqXICWlAYGFuk1JQSUbEfq+I3nPURTbemEQSnJkup/5g41+yxpvh0riAIxVuDdudyLauq2euiFkVf7A=
