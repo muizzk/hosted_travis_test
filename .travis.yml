@@ -1,4 +1,4 @@
 languages: ruby
 rvm:
   - 2.3
-  - jRuby
+  - jruby
