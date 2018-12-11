@@ -18,6 +18,19 @@ notifications:
     rooms:
       secure: kFwVBXdK1dhPTNI4TW3jq7n7nQm0ehcAVihNNu+83d+Mj7M6b3DyTouB220qD9hl9lS6r/Qy5B9f1lSNm87VhewwaVCpKvvLt43RkCeaFoupztQ1Xw3Qi0QJlhlCchA3kcZ0MDSe2xUWbY5zuATypo8HgHYUvrNpiNRVJncckUsJheaSAP/eIifEMvx8Q8Ue4Qqgq0pPQQQy330jFrTr5u6VbSIGLx5O+qH4CwvkBb2GtKLgOEPJRj6ioLobTojHC3xQeQHF2CUE6RqlUgSXW2d9JszrPCJfQTAgFtSCn41lsWwV9XaAEr7Wn2muw2qYd5RysAVek1BfFOGg2A5pNYXX+pqW/cBYQ+ypJYuAXEw2S5BV1NGp6gGhd0KD+xHo+buv6Cs+ZEGT4tv0ZB96g/QHKjnXnLKnLR67aah7TUNpJe4jlU8VoY6zEILgvolKF/rFBluL9aQt+9yWXXRLYst3eMG+7OgwHnvJGRgTm0TEpH1B+twq+dVPGiov78Z66+AqfkMFiVN3XDqsJwPHMvzqhR8t2U2GJVGTPovGeI/sD7gwnw6n7DfgDFG52JOHgx5vnrxv8MzPtcFvIi2W/npusb1his1seqJWWj+tfuaiLd5yUohfDKctqBWmBRt++fpNhhrZUOHDMXy+MW6ykiL7k+wrJ2x59RW9JkPv9yQ=
 script: whoami
+services:
+  - docker
+
+before_install:
+  - docker pull carlad/sinatra
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
+script:
+  - bundle exec rake test
+
+
 script: echo "\nSome Python stuff below"
 language: python
 python:
