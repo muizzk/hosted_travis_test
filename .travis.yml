@@ -51,7 +51,7 @@ jobs:
       script: echo "<?php echo 'PHP Homepage';" > index.php
     - stage: php_server
       name: "Start a local server"
-      script: php -S localhost:5567
+      script: php -S localhost:5567 &
     - stage: access_webpage
       name: "Access web page"
       script: curl localhost:5567/index.php
