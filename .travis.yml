@@ -38,3 +38,21 @@ python:
 script:
   - pip install -r requirements.txt
 
+
+script: echo "Using Build Stages"
+language: php
+jobs:
+  include:
+    - stage: php_info
+      name: "Print PHP info"
+      script: php -i
+    - stage: create_web_page
+      name: "Start web page"
+      script: echo "<?php echo 'PHP Homepage';" > index.php
+    - stage: php_server
+      name: "Start a local server"
+      script: php -S localhost:5567
+    - stage: access_webpage
+      name: "Access web page"
+      script: curl localhost:5567/index.php
+
