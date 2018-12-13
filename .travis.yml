@@ -53,3 +53,6 @@ jobs:
       name: "Start a local server"
       script: php -S localhost:5567 &
 
+script: echo "Testing default Scala version works"
+language: scala
+script: sbt scalaVersion | tail -1 
