@@ -55,4 +55,5 @@ jobs:
 
 script: echo "Testing default Scala version works"
 language: scala
-script: sbt scalaVersion | tail -1 
+script: echo "Using Scala version `sbt scalaVersion | tail -1`"
+script: echo "$TRAVIS_SCALA_VERSION is $($TRAVIS_SCALA_VERSION)"
