@@ -1,7 +1,4 @@
 language: generic
-rvm:
-- 2.3
-- jruby
 before_install:
 - openssl aes-256-cbc -K $encrypted_34bb3d41e405_key -iv $encrypted_34bb3d41e405_iv
   -in secret.txt.enc -out secret.txt -d
@@ -28,8 +25,7 @@ notifications:
 script: cat secret.txt
 services:
 - docker
-python:
-- '2.7'
+
 jobs:
   include:
   - stage: php_info
