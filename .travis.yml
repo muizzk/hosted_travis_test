@@ -33,4 +33,8 @@ jobs:
   - stage: create_web_page
     name: Start web page
     script: echo "<?php echo 'PHP Homepage';" > index.php
-- script: cat secret.txt
+  - stage: Secret file 
+    name: Print contents of secret file
+    script: cat secret.txt
+
+    
