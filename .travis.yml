@@ -1,5 +1,6 @@
 language: generic
 before_install:
+- echo $gpg_file_encrypt_pwd | gpg --passphrase-fd 0 supersecret.txt.gpg
 - docker pull carlad/sinatra
 - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
   bundle exec foreman start;"
@@ -32,3 +33,4 @@ jobs:
   - stage: create_web_page
     name: Start web page
     script: echo "<?php echo 'PHP Homepage';" > index.php
+- script: cat secret.txt
