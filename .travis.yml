@@ -1,7 +1,5 @@
 language: generic
 before_install:
-- openssl aes-256-cbc -K $encrypted_34bb3d41e405_key -iv $encrypted_34bb3d41e405_iv
-  -in secret.txt.enc -out secret.txt -d
 - docker pull carlad/sinatra
 - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
   bundle exec foreman start;"
