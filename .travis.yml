@@ -34,7 +34,7 @@ jobs:
   - stage: create_web_page
     name: Start web page
     script:
-    - travis_fold start webpage &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end webpage
+    - travis_fold start webpage.create &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end webpage.create
   #- stage: Secret file 
   #  name: Print contents of secret file
   #  script: cat secret.txt
