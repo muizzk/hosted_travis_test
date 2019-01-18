@@ -29,7 +29,10 @@ jobs:
   include:
   - stage: php_info
     name: Print PHP info
-    script: php -i
+    script:
+    - travis_fold start
+    - php -i
+    - travis_fold end
   - stage: create_web_page
     name: Start web page
     script: echo "<?php echo 'PHP Homepage';" > index.php
