@@ -31,10 +31,14 @@ jobs:
     name: Print PHP info
     script:
     - travis_fold start php.info && php -i && travis_fold end php.info
-  - stage: create_web_page
+  - stage: create_page
     name: Start web page
     script:
-    - travis_fold start webpage.create &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end webpage.create
+    - travis_fold start create.page &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end create.page
+  - stage: Which php
+    name: Which php
+    script:
+    - travis_fold start which.php && which php && travis_fold end which.php
   #- stage: Secret file 
   #  name: Print contents of secret file
   #  script: cat secret.txt
