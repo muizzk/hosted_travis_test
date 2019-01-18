@@ -30,9 +30,7 @@ jobs:
   - stage: php_info
     name: Print PHP info
     script:
-    - travis_fold start
-    - php -i
-    - travis_fold end
+    - travis_fold start php.info && php -i && travis_fold end php.info
   - stage: create_web_page
     name: Start web page
     script: echo "<?php echo 'PHP Homepage';" > index.php
