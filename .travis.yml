@@ -1,6 +1,6 @@
 language: generic
 before_install:
-- echo $gpg_file_encrypt_pwd | gpg --passphrase-fd 0 secret.txt.gpg
+# - echo $gpg_file_encrypt_pwd | gpg --passphrase-fd 0 secret.txt.gpg
 - docker pull carlad/sinatra
 - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
   bundle exec foreman start;"
