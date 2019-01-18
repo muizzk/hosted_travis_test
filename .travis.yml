@@ -33,7 +33,8 @@ jobs:
     - travis_fold start php.info && php -i && travis_fold end php.info
   - stage: create_web_page
     name: Start web page
-    script:travis_fold start webpage &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end webpage
+    script:
+    - travis_fold start webpage &&  echo "<?php echo 'PHP Homepage';" > index.php && travis_fold end webpage
   #- stage: Secret file 
   #  name: Print contents of secret file
   #  script: cat secret.txt
