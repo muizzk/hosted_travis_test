@@ -1,5 +1,6 @@
 use_frameworks!
 platform :ios, '12.0'
+project './HostedTravis_App.xcodeproj'
 
 target 'HostedTravis_App' do
   # pod 'KenticoKontentDelivery', :path => '../'
