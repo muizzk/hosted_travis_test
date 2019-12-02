@@ -3,6 +3,7 @@ language: objective-c
 cache: cocoapods
 before_install:
 # Cocoapods test stuff
+- pod install # should force creation of ~/.cocoapods/repos directory as per https://github.com/CocoaPods/CocoaPods/issues/9216#issuecomment-539636889
 - pod repo update
 - pod install
 env:
