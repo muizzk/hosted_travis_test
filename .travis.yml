@@ -1,4 +1,7 @@
-language: generic
+# language: generic
+osx_image: xcode11.1
+language: objective-c
+cache: cocoapods
 rvm:
 - 2.3
 - jruby
@@ -8,6 +11,9 @@ before_install:
   bundle exec foreman start;"
 - docker ps -a
 - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+# Cocoapods test stuff
+- pod repo update
+- pod install
 env:
   global:
     secure: WNI0RJbBeSKQ0DVelHXXKknujAQVR4D/Y1LU2tHJjKpp184kRox5ijBSKSsCKNg0RUQ+VQWruay/521ldhl56ISwK5gNbjbF7sfwTY3A7sNS8rQaCrPNAdRrB0GfFUGlzwAJFgnq5n3C6u3iDbmwyZnU1G78xrEe3atoo8S0vS1wfIkxAJ/whyEmPhpq3GiWcjGNLqXb0rdWLuBF12h7jiTCXkoJaUGN3aU6ab5l2Fet97nN4rbSCkPXHV4ZB94D1xtjce2gSVinMKgeJ10YvXli4EkFo3yO3JQKC7UEHHEC3jkKTPV/h1lK6buuw85VSBZvmB0VEUpnRQXmwUKuvyJCOZwqAcLyz3QiklH4yz3N9tXrFoSkgc/EeRBHoXNha1rZClE910yhxdWdr3V9+oKA2uWAmNqKjuB2H3kQ17B8LL4ZvjRB8eQdCs9hEF8AWrWhbalKmORobG+HUhDOhV0DVy10rGHmpzX1hdZlmv/vpt1FGFyPM1m2uy91yvLaUjX6a45Er6VCztAkxnsyyyCf9l6ze4GI+QYNZFoycc9XtmRxUXyHL74GUh9mpDAEWD6bhhhw2VQxym44aNA6Xiy8fCNxdqXICWlAYGFuk1JQSUbEfq+I3nPURTbemEQSnJkup/5g41+yxpvh0riAIxVuDdudyLauq2euiFkVf7A=
