@@ -18,7 +18,7 @@ notifications:
   email:
     recipients:
     - muizudeen+failedbuilds@travis-ci.org
-    on_success: never
+    on_success: always
     on_failure: always
   slack:
     rooms:
