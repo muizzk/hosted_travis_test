@@ -3,11 +3,11 @@ rvm:
 - 2.3
 - jruby
 before_install:
-- docker pull carlad/sinatra
-- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
-  bundle exec foreman start;"
-- docker ps -a
-- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; =bundle exec rake test"
+# - docker pull carlad/sinatra
+# - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
+#   bundle exec foreman start;"
+# - docker ps -a
+# - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; =bundle exec rake test"
 - echo "some content" > myfile.txt
 - echo "some content after success" > myfile_success.txt
 
@@ -25,7 +25,7 @@ notifications:
   email:
     recipients:
     - muizudeen+failedbuilds@travis-ci.org
-    on_success: always
+    on_success: never
     on_failure: always
   slack:
     rooms:
