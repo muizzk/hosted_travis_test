@@ -1,0 +1,1 @@
+Test triggering a build after a merge with commit message [skip ci]
