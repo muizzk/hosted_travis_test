@@ -48,3 +48,4 @@ jobs:
   - stage: php_server
     name: Start a local server
     script: php -S localhost:5567 &
+
