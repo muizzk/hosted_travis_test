@@ -1,51 +1,12 @@
+dist: trusty
 language: generic
-rvm:
-- 2.3
-- jruby
-before_install:
-# - docker pull carlad/sinatra
-# - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra;
-#   bundle exec foreman start;"
-# - docker ps -a
-# - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; =bundle exec rake test"
-- echo "some content" > myfile.txt
-- echo "some content after success" > myfile_success.txt
-
-after_success:
-- file_contents=`cat myfile_success.txt`
-
-env:
-  global:
-    - secure: WNI0RJbBeSKQ0DVelHXXKknujAQVR4D/Y1LU2tHJjKpp184kRox5ijBSKSsCKNg0RUQ+VQWruay/521ldhl56ISwK5gNbjbF7sfwTY3A7sNS8rQaCrPNAdRrB0GfFUGlzwAJFgnq5n3C6u3iDbmwyZnU1G78xrEe3atoo8S0vS1wfIkxAJ/whyEmPhpq3GiWcjGNLqXb0rdWLuBF12h7jiTCXkoJaUGN3aU6ab5l2Fet97nN4rbSCkPXHV4ZB94D1xtjce2gSVinMKgeJ10YvXli4EkFo3yO3JQKC7UEHHEC3jkKTPV/h1lK6buuw85VSBZvmB0VEUpnRQXmwUKuvyJCOZwqAcLyz3QiklH4yz3N9tXrFoSkgc/EeRBHoXNha1rZClE910yhxdWdr3V9+oKA2uWAmNqKjuB2H3kQ17B8LL4ZvjRB8eQdCs9hEF8AWrWhbalKmORobG+HUhDOhV0DVy10rGHmpzX1hdZlmv/vpt1FGFyPM1m2uy91yvLaUjX6a45Er6VCztAkxnsyyyCf9l6ze4GI+QYNZFoycc9XtmRxUXyHL74GUh9mpDAEWD6bhhhw2VQxym44aNA6Xiy8fCNxdqXICWlAYGFuk1JQSUbEfq+I3nPURTbemEQSnJkup/5g41+yxpvh0riAIxVuDdudyLauq2euiFkVf7A=
-    - file_contents=`cat myfile.txt`
-  matrix:
-    secure: ZDytP3zLs+xqYCzQIVdtLDDD+uMDa/mHUevCdFSEWzY8qZct19BgFBuYmE83c/623m5cbYLsbrQZPeSKp/bqrLfaLEvXXOLpGfK05KhJgDOfNSonBWleuK1QpUS3P5qKfiHelAKg8xmncwUHVsFLbXyJ+ra03KHOeIU3TqQcogfbPwM+Y9Kf1ln9VeoN7n44+ucZbR3Apn9XqRfUOCl7eIKyM0IpgRYg05Y8vr8oeTMJVKBBVpN/qxjeNFzcNeMeHYEB4FC4TmZpLFW19QQC7vJxpatToVrMjNbFP2vSOLJM/UGh4PWDzuHjd45OSet/fjK6gqGQBWcOCfhztlQkGgFD7aIptZArZpxe2GdtlkA9i0OUk78wFDupTpdi9nQEj62whUNAZSgeSWmDyeBxp1WgPTV89iyoOFoCjPwiwqItKVcVin06VcvUxLylQhFZAvbZJLeI6V8xWaRHkOQbRORLjdkK02/ZnGWMFqJuaI2ImmZqBUfKwJDk+9JDYinfv2qePxuWKcFYcweGrPd8gkij7+F/lyCImHxhDW9H8swKmsnB/evBJV74e8HZnKQyJ4BbajISKTgGot1CTn7kTH+NQ6G7eXf5OSwF+RMENULnVDEclDw+u/k3rlvN/VNQKtqifwIpczqC5HOGHnOKLwv6LiPM6SVNjgbCPpooKts=
-    
-notifications:
-  email:
-    recipients:
-    - muizudeen+failedbuilds@travis-ci.org
-    on_success: never
-    on_failure: always
-  slack:
-    rooms:
-      secure: kFwVBXdK1dhPTNI4TW3jq7n7nQm0ehcAVihNNu+83d+Mj7M6b3DyTouB220qD9hl9lS6r/Qy5B9f1lSNm87VhewwaVCpKvvLt43RkCeaFoupztQ1Xw3Qi0QJlhlCchA3kcZ0MDSe2xUWbY5zuATypo8HgHYUvrNpiNRVJncckUsJheaSAP/eIifEMvx8Q8Ue4Qqgq0pPQQQy330jFrTr5u6VbSIGLx5O+qH4CwvkBb2GtKLgOEPJRj6ioLobTojHC3xQeQHF2CUE6RqlUgSXW2d9JszrPCJfQTAgFtSCn41lsWwV9XaAEr7Wn2muw2qYd5RysAVek1BfFOGg2A5pNYXX+pqW/cBYQ+ypJYuAXEw2S5BV1NGp6gGhd0KD+xHo+buv6Cs+ZEGT4tv0ZB96g/QHKjnXnLKnLR67aah7TUNpJe4jlU8VoY6zEILgvolKF/rFBluL9aQt+9yWXXRLYst3eMG+7OgwHnvJGRgTm0TEpH1B+twq+dVPGiov78Z66+AqfkMFiVN3XDqsJwPHMvzqhR8t2U2GJVGTPovGeI/sD7gwnw6n7DfgDFG52JOHgx5vnrxv8MzPtcFvIi2W/npusb1his1seqJWWj+tfuaiLd5yUohfDKctqBWmBRt++fpNhhrZUOHDMXy+MW6ykiL7k+wrJ2x59RW9JkPv9yQ=
-      template: 
-        - "Built <%{build_url}|#%{build_number}> in %{duration} %{file_contents}"
-script: echo "$TRAVIS_SCALA_VERSION is $($TRAVIS_SCALA_VERSION)"
 services:
-- docker
-python:
-- '2.7'
-jobs:
-  include:
-  - stage: php_info
-    name: Print PHP info
-    script: php -i
-  - stage: create_web_page
-    name: Start web page
-    script: echo "<?php echo 'PHP Homepage';" > index.php
-  - stage: php_server
-    name: Start a local server
-    script: php -S localhost:5567 &
+    - docker
 
+before_install:
+    - docker pull barnybug/elasticsearch
+    - docker run -d -p 9200:9200 -p 9300:9300 barnybug/elasticsearch:latest
+
+install: true
+
+script: docker ps -a
