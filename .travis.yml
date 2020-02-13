@@ -11,4 +11,4 @@ install: true
 
 script: 
     - docker ps -a
-    - echo "test"
+    - echo "re-test"
