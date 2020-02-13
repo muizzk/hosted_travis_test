@@ -9,4 +9,6 @@ before_install:
 
 install: true
 
-script: docker ps -a
+script: 
+    - docker ps -a
+    - echo "test"
